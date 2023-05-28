@@ -31,12 +31,18 @@ trait TInventory extends IInventory
     override def openInventory(player:EntityPlayer){}
     override def closeInventory(player:EntityPlayer){}
 
-    override def getStackInSlot(slot:Int) = storage(slot)
-
+    override def getStackInSlot(slot: Int): ItemStack = {
+        if (slot < 0 || slot >= storage.length) {
+            return ItemStack.EMPTY
+        }
+        storage(slot)
+    }
     override def setInventorySlotContents(slot:Int, item:ItemStack)
     {
-        storage(slot) = item
-        markDirty()
+        if (slot >= 0 && slot < storage.length) {
+            storage(slot) = item
+            markDirty()
+        }
     }
 
     override def removeStackFromSlot(slot:Int) =
