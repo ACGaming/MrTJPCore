@@ -5,11 +5,11 @@ buildscript {
         jcenter()
         maven {
             name = "forge"
-            url = "http://files.minecraftforge.net/maven"
+            url = "https://maven.minecraftforge.net"
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'com.anatawa12.forge:ForgeGradle:2.3-1.0.8'
     }
 }
 
@@ -37,7 +37,7 @@ configurations {
 repositories {
     maven {
         name "chickenbones"
-        url "http://chickenbones.net/maven/"
+        url "https://chickenbones.net/maven/"
     }
 }
 
